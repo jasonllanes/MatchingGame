@@ -9,6 +9,7 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
                 imageView.setLayoutParams(new GridLayout.LayoutParams());
                 imageView.getLayoutParams().width = imageSize;
                 imageView.getLayoutParams().height = imageSize;
-                imageView.setImageResource(R.drawable.image_default);
+                imageView.setImageResource(R.color.pink);
 
                 GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-                params.setMargins(0, 20, 0, 0);
+                params.setMargins(10, 20, 10, 10);
                 params.height = imageSize;
                 params.width = imageSize;
                 params.columnSpec = GridLayout.spec(j);
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 // Check if the images match
                 if (imageResource1 == imageResource2) {
                     // Images match, keep them flipped
+                    Toast.makeText(MainActivity.this, "Correct match of flower!", Toast.LENGTH_SHORT).show();
                     flippedTiles.clear();
                     isProcessingClick = false;
                 } else {
@@ -122,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
         private void flipTilesBack() {
             for (ImageView flippedTile : flippedTiles) {
-                flippedTile.setImageResource(R.drawable.image_default);
+                flippedTile.setImageResource(R.color.pink);
             }
             flippedTiles.clear();
             isProcessingClick = false;
